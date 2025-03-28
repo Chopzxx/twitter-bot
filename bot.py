@@ -1,3 +1,4 @@
+from flask import Flask
 import os
 import random
 import time
@@ -31,3 +32,16 @@ while True:
         print(f"Error: {e}")
 
     time.sleep(21600)  # Wait 6 hours
+
+# Import Flask and create a simple web server to keep the bot running
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Bot is running!"  # Basic response to verify the server is live
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)  # Run the Flask app on port 8080
+
